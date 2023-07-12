@@ -24,6 +24,7 @@ class DataIngestion:
 
     def export_collection_as_dataframe(self,collection_name, db_name):
         try:
+            logging.info("Entered in export file in data_ingestion")
             mongo_client = MongoClient(MONGO_DB_URL)
 
             collection = mongo_client[db_name][collection_name]
@@ -43,14 +44,8 @@ class DataIngestion:
         
     def export_data_into_feature_store_file_path(self)->pd.DataFrame:
         """
-        Method Name :   export_data_into_feature_store
         Description :   This method reads data from mongodb and saves it into artifacts. 
-        
         Output      :   dataset is returned as a pd.DataFrame
-        On Failure  :   Write an exception log and then raise an exception
-        
-        Version     :   0.1
-       
         """
         try:
             logging.info(f"Exporting data from mongodb")
@@ -76,7 +71,6 @@ class DataIngestion:
 
     def initiate_data_ingestion(self) -> Path:
         """
-            Method Name :   initiate_data_ingestion
             Description :   This method initiates the data ingestion components of training pipeline 
         """
         logging.info("Entered initiate_data_ingestion method of Data_Ingestion class")

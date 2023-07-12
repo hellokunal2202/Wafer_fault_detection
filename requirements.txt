@@ -1,0 +1,10 @@
+pandas 
+numpy
+Flask
+xgboost
+pymongo
+scikit-learn
+PyYAML
+seaborn
+
+-e .

@@ -24,7 +24,6 @@ class ModelTrainerConfig:
     model_config_file_path= os.path.join('config','model.yaml')
 
 
-
 class ModelTrainer:
     def __init__(self):
         
@@ -152,13 +151,6 @@ class ModelTrainer:
             )
 
             
-
-            logging.info(f"Extracting model config file path")
-
-
-            
-
-
 
             logging.info(f"Extracting model config file path")
 

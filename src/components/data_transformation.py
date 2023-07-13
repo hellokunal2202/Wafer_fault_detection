@@ -23,10 +23,6 @@ class DataTransformationConfig:
     transformed_object_file_path=os.path.join( artifact_dir, 'preprocessor.pkl' )
 
 
-
-
-
-
 class DataTransformation:
     def __init__(self,
                  feature_store_file_path):
@@ -43,14 +39,9 @@ class DataTransformation:
     @staticmethod
     def get_data(feature_store_file_path:str) -> pd.DataFrame:
         """
-        Method Name :   get_data
         Description :   This method reads all the validated raw data from the feature_store_file_path and returns a pandas DataFrame containing the merged data. 
-        
         Output      :   a pandas DataFrame containing the merged data 
-        On Failure  :   Write an exception log and then raise an exception
-        
-        Version     :   1.2
-        Revisions   :   moved setup to cloud
+    
         """
         try:
             data = pd.read_csv(feature_store_file_path)
@@ -86,14 +77,8 @@ class DataTransformation:
              
     def initiate_data_transformation(self) :
         """
-            Method Name :   initiate_data_transformation
             Description :   This method initiates the data transformation component for the pipeline 
-            
-            Output      :   data transformation artifact is created and returned 
-            On Failure  :   Write an exception log and then raise an exception
-            
-            Version     :   1.2
-            Revisions   :   moved setup to cloud
+            Output      :   data transformation artifact is created and returned
         """
 
         logging.info(
@@ -111,15 +96,10 @@ class DataTransformation:
             
             X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2 )
 
-
-
             preprocessor = self.get_data_transformer_object()
 
             X_train_scaled =  preprocessor.fit_transform(X_train)
             X_test_scaled  =  preprocessor.transform(X_test)
-
-            
-
 
             preprocessor_path = self.data_transformation_config.transformed_object_file_path
             os.makedirs(os.path.dirname(preprocessor_path), exist_ok= True)

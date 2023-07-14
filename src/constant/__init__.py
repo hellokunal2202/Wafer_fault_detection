@@ -2,11 +2,12 @@ import os
 
 
 AWS_S3_BUCKET_NAME = "wafer-fault"
-MONGO_DATABASE_NAME = "pwskills"
-MONGO_COLLECTION_NAME = "waferfault"
+
+DATABASE_NAME="waferfault_detection_database"
+COLLECTION_NAME="waferfault_data"
 
 TARGET_COLUMN = "quality"
-MONGO_DB_URL="mongodb+srv://snshrivas:Snshrivas@cluster0.u46c4.mongodb.net/?retryWrites=true&w=majority"
+MONGO_DB_URL=uri = "mongodb+srv://hellokunal:Wafer@cluster0.hrdp8gn.mongodb.net/?retryWrites=true&w=majority"
 
 MODEL_FILE_NAME = "model"
 MODEL_FILE_EXTENSION = ".pkl"

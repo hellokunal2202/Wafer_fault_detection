@@ -155,7 +155,6 @@ class ModelTrainer:
             logging.info(f"Extracting model config file path")
 
             model_report: dict = self.evaluate_models(X=x_train, y=y_train, models=self.models)
-
             ## To get best model score from dict
             best_model_score = max(sorted(model_report.values()))
 
@@ -181,9 +180,10 @@ class ModelTrainer:
             best_model_score = accuracy_score(y_test, y_pred)
             
             print(f"best model name {best_model_name} and score: {best_model_score}")
-
+            # logging.info(f"model rainer line 184")
 
             if best_model_score < 0.5:
+                logging.info(f"No best model found with an accuracy greater than the threshold 0.6")
                 raise Exception("No best model found with an accuracy greater than the threshold 0.6")
             
             logging.info(f"Best found model on both training and testing dataset")

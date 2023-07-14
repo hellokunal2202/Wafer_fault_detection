@@ -39,10 +39,6 @@ class PredictionPipeline:
             Description :   This method saves the input file to the prediction artifacts directory. 
             
             Output      :   input dataframe
-            On Failure  :   Write an exception log and then raise an exception
-            
-            Version     :   1.2
-            Revisions   :   moved setup to cloud
         """
 
         try:
@@ -63,8 +59,6 @@ class PredictionPipeline:
 
     def predict(self, features):
             try:
-                
-                
 
                 model = self.utils.load_object(self.prediction_pipeline_config.model_file_path)
                 preprocessor = self.utils.load_object(file_path=self.prediction_pipeline_config.preprocessor_path)
@@ -82,14 +76,9 @@ class PredictionPipeline:
 
         """
             Method Name :   get_predicted_dataframe
-            Description :   this method returns the dataframw with a new column containing predictions
+            Description :   this method returns the dataframe with a new column containing predictions
 
-            
             Output      :   predicted dataframe
-            On Failure  :   Write an exception log and then raise an exception
-            
-            Version     :   1.2
-            Revisions   :   moved setup to cloud
         """
    
         try:
